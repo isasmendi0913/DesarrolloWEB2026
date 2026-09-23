@@ -216,11 +216,15 @@ body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     overflow-y: auto;
+/* Estilos generales (por defecto para móviles) */
+.menu-btn {
+    display: inline-block; /* O el display que uses para mostrarlo */
 }
 
+/* Regla para pantallas grandes (laptops y escritorio) */
 @media (min-width: 1024px) {
-    .content-area {
-        grid-template-columns: repeat(12, minmax(0, 1fr));
+    .lg-hidden {
+        display: none; /* Oculta el botón de menú en pantallas de 1024px o más */
     }
 }
 
@@ -289,9 +293,7 @@ body {
     font-size: 0.8rem;
 }
 
-/* ==========================================
-   COLUMNA DE VISTA PREVIA (IFRAME)
-   ================================---------- */
+/*    COLUMNA DE VISTA PREVIA (IFRAME) */
 .preview-column {
     grid-column: span 6 / span 6;
     display: flex;
@@ -347,10 +349,18 @@ body {
     text-overflow: ellipsis;
     font-family: monospace;
 }
+/* Maximizar el espacio dentro del marco de vista previa */
+.preview-container {
+    padding: 0; /* Quita el relleno alrededor del iframe */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
 .iframe-wrapper {
-    flex-grow: 1;
-    background-color: #ffffff;
+    flex: 1;
+    width: 100%;
+    height: 100%;
 }
 
 .preview-iframe {
@@ -359,9 +369,7 @@ body {
     border: none;
 }
 
-/* ==========================================
-   SCROLLBARS PERSONALIZADOS
-   ================================---------- */
+/*    SCROLLBARS PERSONALIZADOS */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
