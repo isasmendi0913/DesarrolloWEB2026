@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Desarrollo Web 2026 | Tecnicatura Superior en Desarrollo de Software</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <button onclick="toggleSidebar()" class="menu-btn lg-hidden">
+                Menú
+            </button>
+            <h1>Portafolio de Trabajos Prácticos</h1>
+            <span class="header-sub">Desarrollo Web 2026</span>
+            <h2><span class="header-sub">Santiago Joaquin Batallanes</span></h2>
+        </div>
+        <span class="alumno-badge">Isasmendi Saul Abraham</span>
+    </header>
+    <div class="main-container">
+
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <span> Trabajos Practicos de Clases</span>
+                <span id="contador-trabajos" class="counter-badge">0</span>
+            </div>
+            <div id="lista-trabajos" class="sidebar-list">
+                <p class="loading-text">Cargando trabajos...</p>
+            </div>
+        </aside>
+        <div id="sidebar-backdrop" onclick="toggleSidebar()" class="sidebar-backdrop hidden"></div>
+        <main class="content-area">
+            <div class="code-columns">
+                <div class="code-panel">
+                    <div class="panel-header">
+                        <span id="label-html" class="panel-title"> index.html</span>
+                        <button onclick="copiarCodigo('html-code')" class="copy-btn">Copiar</button>
+                    </div>
+                    <div class="panel-body">
+                        <pre><code id="html-code" class="language-html">Cargando código...</code></pre>
+                    </div>
+                </div>
+                    <div class="code-panel">
+                    <div class="panel-header">
+                        <span id="label-css" class="panel-title"> style.css</span>
+                        <button onclick="copiarCodigo('css-code')" class="copy-btn">Copiar</button>
+                    </div>
+                    <div class="panel-body">
+                        <pre><code id="css-code" class="language-css">Cargando código...</code></pre>
+                    </div>
+                </div>
+                <div id="contenedor-js" class="code-panel">
+                    <div class="panel-header">
+                        <span id="label-js" class="panel-title"> script.js</span>
+                        <button onclick="copiarCodigo('js-code')" class="copy-btn">Copiar</button>
+                    </div>
+                    <div class="panel-body">
+                        <pre><code id="js-code" class="language-javascript">Cargando código...</code></pre>
+                    </div>
+                </div>
+
+            </div>
+            <div class="preview-column">
+                <div class="preview-container">
+                    <div class="preview-header">
+                        <div class="window-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div id="url-barra" class="url-bar">
+                             Selecciona un trabajo
+                        </div>
+                    </div>
+                    
+                    <div class="iframe-wrapper">
+                        <iframe id="preview-frame" src="" class="preview-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    
+    <script>
+        let todosLosTrabajos = [];
+
+        async function cargarTrabajos() {
+            try {
+                const respuesta = await fetch('trabajos.json');
+                if (!respuesta.ok) throw new Error("No se pudo cargar trabajos.json");
+                todosLosTrabajos = await respuesta.json();
+                
+                document.getElementById('contador-trabajos').innerText = todosLosTrabajos.length;
+                renderizarMenu();
+
+                if (todosLosTrabajos.length > 0) {
+                    seleccionarTrabajo(todosLosTrabajos[0].id);
+                }
+            } catch (error) {
+                console.error("Error al cargar los trabajos:", error);
+                document.getElementById('lista-trabajos').innerHTML = '<p class="error-text">Error al leer trabajos.json</p>';
+            }
+        }
+
+        function renderizarMenu() {
+            const contenedor = document.getElementById('lista-trabajos');
+            contenedor.innerHTML = '';
+
+            todosLosTrabajos.forEach(trabajo => {
+                const btn = document.createElement('button');
+                btn.id = `btn-${trabajo.id}`;
+                btn.className = "trabajo-btn";
+                btn.innerHTML = `<span> ${trabajo.titulo}</span> <span class="trabajo-action">Ver ➔</span>`;
+                btn.onclick = () => {
+                    seleccionarTrabajo(trabajo.id);
+                    if (window.innerWidth < 1024) toggleSidebar();
+                };
+                contenedor.appendChild(btn);
+            });
+        }
+
+        async function seleccionarTrabajo(id) {
+            const trabajo = todosLosTrabajos.find(t => t.id === id);
+            if (!trabajo) return;
+
+            document.querySelectorAll('#lista-trabajos button').forEach(b => b.classList.remove('active'));
+            const btnActivo = document.getElementById(`btn-${id}`);
+            if(btnActivo) {
+                btnActivo.classList.add('active');
+            }
+
+            document.getElementById('preview-frame').src = trabajo.htmlRuta;
+            document.getElementById('url-barra').innerText = ` /${trabajo.htmlRuta}`;
+            document.getElementById('label-html').innerText = ` ${trabajo.htmlRuta}`;
+            document.getElementById('label-css').innerText = ` ${trabajo.cssRuta}`;
+
+            try {
+                // Cargar HTML
+                const resHtml = await fetch(trabajo.htmlRuta);
+                document.getElementById('html-code').textContent = resHtml.ok ? await resHtml.text() : "<!-- Archivo no encontrado -->";
+
+                // Cargar CSS
+                const resCss = await fetch(trabajo.cssRuta);
+                document.getElementById('css-code').textContent = resCss.ok ? await resCss.text() : "/* Archivo no encontrado */";
+
+                // Cargar JS si existe en el JSON
+                const contenedorJs = document.getElementById('contenedor-js');
+                if (trabajo.jsRuta && trabajo.jsRuta.trim() !== "") {
+                    contenedorJs.style.display = "flex";
+                    document.getElementById('label-js').innerText = `⚡ ${trabajo.jsRuta}`;
+                    const resJs = await fetch(trabajo.jsRuta);
+                    document.getElementById('js-code').textContent = resJs.ok ? await resJs.text() : "// Archivo JS no encontrado";
+                } else {
+                    contenedorJs.style.display = "none";
+                }
+
+                hljs.highlightAll();
+            } catch (e) {
+                console.error("Error al recuperar los archivos de código", e);
+            }
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            sidebar.classList.toggle('open');
+            backdrop.classList.toggle('hidden');
+        }
+
+        cargarTrabajos();
+
+        function copiarCodigo(idElemento) {
+            const texto = document.getElementById(idElemento).innerText;
+            navigator.clipboard.writeText(texto).then(() => {
+                alert("¡Código copiado al portapapeles!");
+            });
+        }
+    </script>
+</body>
+</html>
