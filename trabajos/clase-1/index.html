@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP1: Etiquetas HTML</title>
+</head>
+<body>
+
+    <h1>Trabajo Práctico N° 1: Etiquetas HTML</h1>
+    <p>Desarrollo Web</p>
+
+    <hr>
+
+
+    <section>
+        <h2>1. Encabezados y Textos</h2>
+
+        <article>
+            <h3>&lt;h1&gt; a &lt;h6&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>
+                &lt;h1&gt;Título principal&lt;/h1&gt;<br>
+                &lt;h2&gt;Subtítulo&lt;/h2&gt;
+            </code>
+            <p><strong>Definición:</strong> Define los títulos y jerarquía del texto en la página. El &lt;h1&gt; es el más importante y se recomienda usarlo una sola vez por documento.</p>
+        </article>
+
+        <article>
+            <h3>&lt;p&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>&lt;p&gt;Este es un párrafo de texto general.&lt;/p&gt;</code>
+            <p><strong>Definición:</strong> Agrupa un bloque de texto común, añadiendo automáticamente separación superior e inferior.</p>
+        </article>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>2. Contenedores y Estructura</h2>
+
+        <article>
+            <h3>&lt;div&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>&lt;div&gt;Contenido agrupado para estilos&lt;/div&gt;</code>
+            <p><strong>Definición:</strong> Contenedor genérico en bloque sin significado semántico específico, utilizado para estructurar y aplicar estilos.</p>
+        </article>
+
+        <article>
+            <h3>&lt;section&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>
+                &lt;section&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Sección temática&lt;/h2&gt;<br>
+                &lt;/section&gt;
+            </code>
+            <p><strong>Definición:</strong> Agrupa contenido relacionado temáticamente que comparte un mismo contexto dentro del documento.</p>
+        </article>
+
+        <article>
+            <h3>&lt;article&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>
+                &lt;article&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Noticia o Post&lt;/h2&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;...&lt;/p&gt;<br>
+                &lt;/article&gt;
+            </code>
+            <p><strong>Definición:</strong> Representa una pieza de contenido autónoma e independiente, como una entrada de blog, artículo o tarjeta de producto.</p>
+        </article>
+
+        <article>
+            <h3>&lt;nav&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>
+                &lt;nav&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Inicio&lt;/a&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Contacto&lt;/a&gt;<br>
+                &lt;/nav&gt;
+            </code>
+            <p><strong>Definición:</strong> Contenedor destinado a las secciones de enlaces de navegación principales del sitio web.</p>
+        </article>
+
+        <article>
+            <h3>&lt;footer&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>
+                &lt;footer&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&copy; 2026 Mi Sitio Web&lt;/p&gt;<br>
+                &lt;/footer&gt;
+            </code>
+            <p><strong>Definición:</strong> Define el pie de página de una sección o de todo el documento, conteniendo datos de contacto, autoría o derechos.</p>
+        </article>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>3. Formularios e Interfaz</h2>
+
+        <article>
+            <h3>&lt;form&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>
+                &lt;form action="enviar.php" method="POST"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Campos del formulario --&gt;<br>
+                &lt;/form&gt;
+            </code>
+            <p><strong>Definición:</strong> Contenedor interactivo para recopilar datos ingresados por el usuario y enviarlos a un servidor web.</p>
+        </article>
+
+        <article>
+            <h3>&lt;select&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>
+                &lt;select&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Opción 1&lt;/option&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Opción 2&lt;/option&gt;<br>
+                &lt;/select&gt;
+            </code>
+            <p><strong>Definición:</strong> Crea un menú desplegable interactivo que permite al usuario seleccionar una o varias opciones de una lista.</p>
+        </article>
+    </section>
+
+    <hr>
+    <section>
+        <h2>4. Multimedia</h2>
+
+        <article>
+            <h3>&lt;img&gt;</h3>
+            <p><strong>Forma:</strong></p>
+            <code>&lt;img src="imagen.jpg" alt="Descripción de la imagen"&gt;</code>
+            <p><strong>Definición:</strong> Inserta una imagen en la página web utilizando la ruta del archivo (src) y un texto alternativo descriptivo (alt).</p>
+        </article>
+    </section>
+
+</body>
+</html>

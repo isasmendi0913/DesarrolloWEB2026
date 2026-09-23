@@ -1,0 +1,33 @@
+/* Reseteo básico  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* estilo general o padre*/
+body {
+    font-family: Arial, sans-serif;/* Tipo de letra */
+    padding: 20px;/*Espacio interno*/
+    background-color: #f4f4f9; /* Color de fondo */
+}
+
+/* Estilos generales  Box Model */
+.tarjeta {
+    padding: 15px;      /* Espacio interno */
+    margin: 20px;       /* Espacio externo entre tarjetas */
+    border: 2px solid #333; /* Borde */
+    border-radius: 8px; /* esquinas redondeadas */
+}
+
+
+.tj-1 {
+    background-color: #FF6B6B; /* para la tarjeta1 */
+}
+
+.tj-2 {
+    background-color: #4ECDC4; /* para la tarjeta2 */
+}
+
+.tj-3 {
+    background-color: #FFE66D; /* para la tarjeta3 */
+}
