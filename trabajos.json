@@ -2,47 +2,43 @@
   {
     "id": "clase-1",
     "titulo": "Clase 1: Etiquetas",
-    "htmlRuta": "trabajos/clase-1/index.html",
-   
+    "htmlRuta": "trabajos/clase-1/index.html"
   },
   {
     "id": "clase-2",
     "titulo": "Clase 2: CSS y Box Model",
     "htmlRuta": "trabajos/clase-2/index.html",
-    "cssRuta": "trabajos/clase-2/style.css",
-   
+    "cssRuta": "trabajos/clase-2/style.css"
   },
 {
     "id": "clase-3",
     "titulo": "Clase 3: NAV y Enlaces",
     "htmlRuta": "trabajos/clase-3/index.html",
-    "cssRuta": "trabajos/clase-3/style.css",
-   
+    "cssRuta": "trabajos/clase-3/style.css" 
   },
   {
     "id": "clase-4",
     "titulo": "Clase 4: FLEX",
     "htmlRuta": "trabajos/clase-4/index.html",
-    "cssRuta": "trabajos/clase-4/style.css",
-    
+    "cssRuta": "trabajos/clase-4/style.css"
   },
   { 
     "id": "clase-5",
-    "titulo": "Clase 5: Responsive Design",
+    "titulo": "Clase 5: grip y media query",
     "htmlRuta": "trabajos/clase-5/index.html",
-    "cssRuta": "trabajos/clase-5/style.css",
-    
+    "cssRuta": "trabajos/clase-5/style.css"
   },
   { 
     "id": "clase-6",
-    "titulo": "Clase 6: Formularios y Validación"
+    "titulo": "Clase diagrama de utilizacion del tamaño de pantalla",
+  "htmlRuta": "trabajos/clase-6/index.html",
+    "cssRuta": "trabajos/clase-6/style.css"
+   
   },
   {
     "id": "clase-7",
     "titulo": "Navegacion,Contenidos",
     "htmlRuta": "trabajos/clase-7/index.html",
-    "cssRuta": "trabajos/clase-7/style.css",
-    
-    
+    "cssRuta": "trabajos/clase-7/style.css"
   }
 ]
