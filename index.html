@@ -3,74 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Desarrollo Web 2026 | Tecnicatura Superior en Desarrollo de Software</title>
+    <title>Desarrollo Web 2026 | Portafolio</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Highlight.js para sintaxis de código -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
-<header class="main-header">
-    <div class="header-left">
-        <button onclick="toggleSidebar()" class="menu-btn lg-hidden">
-            Menú
-        </button>
-        <h1>Portafolio de Trabajos Prácticos</h1>
-        <span class="header-sub">Desarrollo Web 2026</span>
-    </div>
-    
-    <div class="header-right">
-        <span class="alumno-badge">Isasmendi Saul Abraham</span>
-        <a href="https://github.com/isasmendi0913/DesarrolloWEB2026" target="_blank" rel="noopener noreferrer" class="github-btn">
-            <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-            </svg>
-            GitHub
-        </a>
-    </div>
-</header>
-    <div class="main-container">
 
+    <!-- Encabezado Principal -->
+    <header class="main-header">
+        <div class="header-left">
+            <button onclick="toggleSidebar()" class="menu-btn lg-hidden">Menú</button>
+            <div class="header-titles">
+                <h1>Portafolio de Trabajos Prácticos</h1>
+                <span class="header-sub">Desarrollo Web 2026</span>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <span class="alumno-badge">Saúl Abraham Isasmendi</span>
+            <a href="https://github.com/isasmendi0913/DesarrolloWEB2026" target="_blank" rel="noopener noreferrer" class="github-btn" title="Ver repositorio en GitHub">
+                <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+        <!-- Panel Lateral -->
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
-                <span> Trabajos Practicos de Clases</span>
+                <span>Trabajos Prácticos</span>
                 <span id="contador-trabajos" class="counter-badge">0</span>
             </div>
             <div id="lista-trabajos" class="sidebar-list">
-                <p class="loading-text">Cargando trabajos...</p>
+                <p class="loading-text">Cargando clases...</p>
             </div>
         </aside>
+
         <div id="sidebar-backdrop" onclick="toggleSidebar()" class="sidebar-backdrop hidden"></div>
+
+        <!-- Área de Contenido -->
         <main class="content-area">
+            <!-- Paneles de Código -->
             <div class="code-columns">
-                <div class="code-panel">
+                <div id="contenedor-html" class="code-panel">
                     <div class="panel-header">
-                        <span id="label-html" class="panel-title"> index.html</span>
+                        <span id="label-html" class="panel-title">index.html</span>
                         <button onclick="copiarCodigo('html-code')" class="copy-btn">Copiar</button>
                     </div>
                     <div class="panel-body">
                         <pre><code id="html-code" class="language-html">Cargando código...</code></pre>
                     </div>
                 </div>
-                    <div class="code-panel">
+
+                <div id="contenedor-css" class="code-panel">
                     <div class="panel-header">
-                        <span id="label-css" class="panel-title"> style.css</span>
+                        <span id="label-css" class="panel-title">style.css</span>
                         <button onclick="copiarCodigo('css-code')" class="copy-btn">Copiar</button>
                     </div>
                     <div class="panel-body">
                         <pre><code id="css-code" class="language-css">Cargando código...</code></pre>
                     </div>
                 </div>
+
                 <div id="contenedor-js" class="code-panel">
                     <div class="panel-header">
-                        <span id="label-js" class="panel-title"> script.js</span>
+                        <span id="label-js" class="panel-title">script.js</span>
                         <button onclick="copiarCodigo('js-code')" class="copy-btn">Copiar</button>
                     </div>
                     <div class="panel-body">
                         <pre><code id="js-code" class="language-javascript">Cargando código...</code></pre>
                     </div>
                 </div>
-
             </div>
+
+            <!-- Visor de Vista Previa -->
             <div class="preview-column">
                 <div class="preview-container">
                     <div class="preview-header">
@@ -79,30 +91,41 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <div id="url-barra" class="url-bar">
-                             Selecciona un trabajo
-                        </div>
+                        <div id="url-barra" class="url-bar">Selecciona una clase</div>
+                        <a id="btn-fullscreen" href="#" target="_blank" class="fullscreen-btn" title="Ampliar en pestaña independiente">
+                            📐 Ampliar
+                        </a>
                     </div>
-                    
                     <div class="iframe-wrapper">
-                        <iframe id="preview-frame" src="" class="preview-iframe"></iframe>
+                        <iframe id="preview-frame" src="about:blank" class="preview-iframe" title="Vista previa del trabajo"></iframe>
                     </div>
                 </div>
             </div>
-
         </main>
     </div>
 
-    
+    <!-- Pie de Página -->
+    <footer class="main-footer">
+        <p>© 2026 Desarrollo Web — Profesor de Catedra: Santiago Joaquín Batallanes — Todos los derechos reservados del alumno de la materia-2026.</p>
+    </footer>
+
+    <!-- Lógica JavaScript -->
     <script>
+        // Configuración por defecto de la interfaz
+        const CONFIG_UI_DEFAULT = {
+            mostrarAmpliar: true,
+            barraNavegacion: true,
+            botones: ["copiar"]
+        };
+
         let todosLosTrabajos = [];
 
         async function cargarTrabajos() {
             try {
                 const respuesta = await fetch('trabajos.json');
-                if (!respuesta.ok) throw new Error("No se pudo cargar trabajos.json");
+                if (!respuesta.ok) throw new Error("No se pudo leer trabajos.json");
                 todosLosTrabajos = await respuesta.json();
-                
+
                 document.getElementById('contador-trabajos').innerText = todosLosTrabajos.length;
                 renderizarMenu();
 
@@ -123,7 +146,7 @@
                 const btn = document.createElement('button');
                 btn.id = `btn-${trabajo.id}`;
                 btn.className = "trabajo-btn";
-                btn.innerHTML = `<span> ${trabajo.titulo}</span> <span class="trabajo-action">Ver ➔</span>`;
+                btn.innerHTML = `<span>${trabajo.titulo}</span><span class="trabajo-action">Ver ➔</span>`;
                 btn.onclick = () => {
                     seleccionarTrabajo(trabajo.id);
                     if (window.innerWidth < 1024) toggleSidebar();
@@ -136,51 +159,71 @@
             const trabajo = todosLosTrabajos.find(t => t.id === id);
             if (!trabajo) return;
 
+            // Marcar botón activo en el panel lateral
             document.querySelectorAll('#lista-trabajos button').forEach(b => b.classList.remove('active'));
             const btnActivo = document.getElementById(`btn-${id}`);
-            if(btnActivo) {
-                btnActivo.classList.add('active');
+            if (btnActivo) btnActivo.classList.add('active');
+
+            // Determinar configuración (del JSON si existe, o valor por defecto)
+            const mostrarAmpliar = trabajo.mostrarAmpliar ?? CONFIG_UI_DEFAULT.mostrarAmpliar;
+            const barraNavegacion = trabajo.barraNavegacion ?? CONFIG_UI_DEFAULT.barraNavegacion;
+
+            // Elementos del visor
+            const iframe = document.getElementById('preview-frame');
+            const urlBarra = document.getElementById('url-barra');
+            const btnAmpliar = document.getElementById('btn-fullscreen');
+
+            iframe.src = trabajo.htmlRuta;
+
+            // Aplicar visibilidad de la Barra de Navegación
+            if (barraNavegacion) {
+                urlBarra.style.display = 'block';
+                urlBarra.innerText = `/${trabajo.htmlRuta}`;
+            } else {
+                urlBarra.style.display = 'none';
             }
 
-            document.getElementById('preview-frame').src = trabajo.htmlRuta;
-            document.getElementById('url-barra').innerText = ` /${trabajo.htmlRuta}`;
-            document.getElementById('label-html').innerText = ` ${trabajo.htmlRuta}`;
-            document.getElementById('label-css').innerText = ` ${trabajo.cssRuta}`;
+            // Aplicar visibilidad del Botón Ampliar
+            if (mostrarAmpliar) {
+                btnAmpliar.style.display = 'inline-flex';
+                btnAmpliar.href = trabajo.htmlRuta;
+            } else {
+                btnAmpliar.style.display = 'none';
+            }
 
-            try {
-                // Cargar HTML
-                const resHtml = await fetch(trabajo.htmlRuta);
-                document.getElementById('html-code').textContent = resHtml.ok ? await resHtml.text() : "<!-- Archivo no encontrado -->";
+            // Cargar Código HTML, CSS y JS
+            cargarArchivo(trabajo.htmlRuta, 'html-code', 'label-html', 'contenedor-html', '<!-- Sin HTML -->');
+            cargarArchivo(trabajo.cssRuta, 'css-code', 'label-css', 'contenedor-css', '/* Sin CSS en esta clase */');
+            cargarArchivo(trabajo.jsRuta, 'js-code', 'label-js', 'contenedor-js', '// Sin JS en esta clase');
+        }
 
-                // Cargar CSS
-                const resCss = await fetch(trabajo.cssRuta);
-                document.getElementById('css-code').textContent = resCss.ok ? await resCss.text() : "/* Archivo no encontrado */";
+        async function cargarArchivo(ruta, elementId, labelId, containerId, mensajeVacio) {
+            const contenedor = document.getElementById(containerId);
+            const etiqueta = document.getElementById(labelId);
+            const codigo = document.getElementById(elementId);
 
-                // Cargar JS si existe en el JSON
-                const contenedorJs = document.getElementById('contenedor-js');
-                if (trabajo.jsRuta && trabajo.jsRuta.trim() !== "") {
-                    contenedorJs.style.display = "flex";
-                    document.getElementById('label-js').innerText = `⚡ ${trabajo.jsRuta}`;
-                    const resJs = await fetch(trabajo.jsRuta);
-                    document.getElementById('js-code').textContent = resJs.ok ? await resJs.text() : "// Archivo JS no encontrado";
-                } else {
-                    contenedorJs.style.display = "none";
+            if (ruta && ruta.trim() !== "") {
+                contenedor.style.display = "flex";
+                etiqueta.innerText = ` ${ruta}`;
+                try {
+                    const res = await fetch(ruta);
+                    codigo.textContent = res.ok ? await res.text() : "<!-- Archivo no encontrado -->";
+                } catch {
+                    codigo.textContent = "<!-- Error al cargar el archivo -->";
                 }
-
-                hljs.highlightAll();
-            } catch (e) {
-                console.error("Error al recuperar los archivos de código", e);
+            } else {
+                contenedor.style.display = "flex";
+                etiqueta.innerText = " (No aplica)";
+                codigo.textContent = mensajeVacio;
             }
+
+            hljs.highlightElement(codigo);
         }
 
         function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const backdrop = document.getElementById('sidebar-backdrop');
-            sidebar.classList.toggle('open');
-            backdrop.classList.toggle('hidden');
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebar-backdrop').classList.toggle('hidden');
         }
-
-        cargarTrabajos();
 
         function copiarCodigo(idElemento) {
             const texto = document.getElementById(idElemento).innerText;
@@ -188,8 +231,8 @@
                 alert("¡Código copiado al portapapeles!");
             });
         }
+
+        document.addEventListener("DOMContentLoaded", cargarTrabajos);
     </script>
 </body>
-     <h2><span class="header-sub"> Profesor: Santiago Joaquin Batallanes</span></h2> <h2><span class="header-sub"> desarrollado 2026</h2>
-    
 </html>
