@@ -93,7 +93,7 @@
                         </div>
                         <div id="url-barra" class="url-bar">Selecciona una clase</div>
                         <a id="btn-fullscreen" href="#" target="_blank" class="fullscreen-btn" title="Ampliar en pestaña independiente">
-                            📐 Ampliar
+                             Ampliar
                         </a>
                     </div>
                     <div class="iframe-wrapper">
@@ -122,7 +122,7 @@
 
         async function cargarTrabajos() {
             try {
-                const respuesta = await fetch('trabajos.json');
+                const respuesta = await fetch('./trabajos.json'));
                 if (!respuesta.ok) throw new Error("No se pudo leer trabajos.json");
                 todosLosTrabajos = await respuesta.json();
 
