@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desarrollo Web 2026 | Portafolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Highlight.js para sintaxis de código -->
+    <!-- Highlight.js para resaltado de sintaxis -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
@@ -93,7 +93,7 @@
                         </div>
                         <div id="url-barra" class="url-bar">Selecciona una clase</div>
                         <a id="btn-fullscreen" href="#" target="_blank" class="fullscreen-btn" title="Ampliar en pestaña independiente">
-                             Ampliar
+                            📐 Ampliar
                         </a>
                     </div>
                     <div class="iframe-wrapper">
@@ -106,7 +106,7 @@
 
     <!-- Pie de Página -->
     <footer class="main-footer">
-        <p>© 2026 Desarrollo Web — Profesor de Catedra: Santiago Joaquín Batallanes — Todos los derechos reservados del alumno de la materia-2026.</p>
+        <p>© 2026 Desarrollo Web — Profesor: Santiago Joaquín Batallanes — Todos los derechos reservados.</p>
     </footer>
 
     <!-- Lógica JavaScript -->
@@ -122,7 +122,7 @@
 
         async function cargarTrabajos() {
             try {
-                const respuesta = await fetch('./trabajos.json'));
+                const respuesta = await fetch('./trabajos.json');
                 if (!respuesta.ok) throw new Error("No se pudo leer trabajos.json");
                 todosLosTrabajos = await respuesta.json();
 
@@ -159,12 +159,12 @@
             const trabajo = todosLosTrabajos.find(t => t.id === id);
             if (!trabajo) return;
 
-            // Marcar botón activo en el panel lateral
+            // Marcar botón activo en el menú lateral
             document.querySelectorAll('#lista-trabajos button').forEach(b => b.classList.remove('active'));
             const btnActivo = document.getElementById(`btn-${id}`);
             if (btnActivo) btnActivo.classList.add('active');
 
-            // Determinar configuración (del JSON si existe, o valor por defecto)
+            // Determinar configuración de UI (del JSON si existe o del fallback predeterminado)
             const mostrarAmpliar = trabajo.mostrarAmpliar ?? CONFIG_UI_DEFAULT.mostrarAmpliar;
             const barraNavegacion = trabajo.barraNavegacion ?? CONFIG_UI_DEFAULT.barraNavegacion;
 
@@ -191,7 +191,7 @@
                 btnAmpliar.style.display = 'none';
             }
 
-            // Cargar Código HTML, CSS y JS
+            // Cargar Código HTML, CSS y JS de forma segura
             cargarArchivo(trabajo.htmlRuta, 'html-code', 'label-html', 'contenedor-html', '<!-- Sin HTML -->');
             cargarArchivo(trabajo.cssRuta, 'css-code', 'label-css', 'contenedor-css', '/* Sin CSS en esta clase */');
             cargarArchivo(trabajo.jsRuta, 'js-code', 'label-js', 'contenedor-js', '// Sin JS en esta clase');
@@ -202,7 +202,8 @@
             const etiqueta = document.getElementById(labelId);
             const codigo = document.getElementById(elementId);
 
-            if (ruta && ruta.trim() !== "") {
+            // Verificación segura contra cadenas vacías, undefined o null
+            if (typeof ruta === 'string' && ruta.trim() !== "") {
                 contenedor.style.display = "flex";
                 etiqueta.innerText = ` ${ruta}`;
                 try {
